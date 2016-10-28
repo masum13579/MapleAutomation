@@ -1,0 +1,116 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="MapleAutomation.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Maple Automation And Engineering</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/Default.aspx">Maple Automation</a>
+                </div>
+
+                <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/About.aspx">About Us</a></li>
+                        <li  class="dropdown">
+                            <a runat="server" href="~/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Product <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><asp:HyperLink ID="PleHmi" runat="server" NavigateUrl="~/ProductPage/PLCANDHMI.aspx">PLC AND HMI</asp:HyperLink></li>
+                                <li class="divider"></li>
+                                <li><asp:HyperLink ID="DcDrive" runat="server" NavigateUrl="~/ProductPage/DCDrive.aspx">DC Drive</asp:HyperLink></li>
+                                <li><asp:HyperLink ID="ServoDrive" runat="server" NavigateUrl="~/ProductPage/ServoDrive.aspx">Servo Drive</asp:HyperLink></li>
+                                <li><asp:HyperLink ID="AcInverter" runat="server" NavigateUrl="~/ProductPage/ACInverter.aspx">AC Inverter</asp:HyperLink></li>
+                                <li class="divider"></li>
+                                <li><asp:HyperLink ID="AutoSensor" runat="server" NavigateUrl="~/ProductPage/AutoSensor.aspx">Auto Sensor</asp:HyperLink></li>
+                                <li class="divider"></li>
+                                <li><asp:HyperLink ID="AutoAccessories" runat="server" NavigateUrl="~/ProductPage/AutoAccessories.aspx">Auto Accessories</asp:HyperLink></li>
+                                <li class="divider"></li>
+                                <li><asp:HyperLink ID="MachanicalControl" runat="server" NavigateUrl="~/ProductPage/MachanicalControl.aspx">Machanical Control</asp:HyperLink></li>
+                          </ul>
+                        </li>
+                        <li><a runat="server" href="~/#">Services</a></li>
+                        <li><a runat="server" href="~/#">Our Client</a></li>
+                        <li><a runat="server" href="~/Contact.aspx">Contact</a></li>
+                        <li>  </li>
+                        
+                        <li style="margin-top: 15px;"><asp:TextBox ID="TextBox1" Height="30px" class="form-control" placeholder="Search Product " runat="server"></asp:TextBox></li>
+                        <li> &nbsp; </li>
+                        <li style="margin-top: 15px;"><asp:Button ID="Button1" Height="30px" class="btn btn-success btn-sm" runat="server" Text="Search" /></li>
+                        <li></li>                          
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li style="margin-top: -7px"><asp:HyperLink ID="HyperLinkCart" ImageUrl="Content/img/Cart.png" runat="server">HyperLink</asp:HyperLink></li>
+                        <li class="dropdown">
+                            <a runat="server" href="~/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <asp:Label ID="LableName" runat="server" Text="Welcome"></asp:Label>
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Account/EditProfile.aspx">Edit Profile</asp:HyperLink></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="LinkLogin" runat="server" NavigateUrl="~/Account/UserLogin.aspx">Login</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="LinkLogOut" runat="server" NavigateUrl="~/Account/LogOut.aspx">LogOut</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="LinkRegistration" runat="server" NavigateUrl="~/Account/Registration.aspx">Registration</asp:HyperLink>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p align="center">© - Copyright &copy; <%: DateTime.Now.Year %> - All Rights Reserved By Masum</p>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>
