@@ -47,6 +47,8 @@
                     </div>
                     <div class="form-group">
                     <asp:Label ID="ErrorMassage" runat="server" Font-Size="Small" ForeColor="Red"></asp:Label>
+                        <br />
+                        <asp:Label ID="Massage" runat="server" CssClass="text-success" Font-Size="Small"></asp:Label>
                     </div>
                     <div class="form-group">
                             <asp:Button ID="Submit" CssClass="btn btn-primary" runat="server" Text="Submit" OnClick="Submit_Click" />

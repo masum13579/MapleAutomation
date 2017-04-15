@@ -11,7 +11,28 @@ namespace MapleAutomation.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Roles"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                string roles = Session["Roles"].ToString();
 
+                if (roles == "Order")
+                {
+                    Response.Redirect("Login.aspx");
+                }
+                else if (roles == "Product")
+                {
+                    Response.Redirect("Login.aspx");
+                }
+                else if (roles == "Master")
+                {
+
+                }
+
+            }
         }
     }
 }

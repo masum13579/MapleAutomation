@@ -52,6 +52,15 @@
                         <label>Address</label>
                             <asp:TextBox ID="textArea" CssClass="form-control" Rows="3" placeholder="Address" runat="server" TextMode="MultiLine" Width="280px"></asp:TextBox>
                     </div>
+                <div class="form-group">
+                    <label>Permission</label>
+                    <asp:RadioButtonList ID="PermissionCheck" runat="server" RepeatDirection="Horizontal">
+                        <asp:ListItem>Master</asp:ListItem>
+                        <asp:ListItem>Order</asp:ListItem>
+                        <asp:ListItem>Product</asp:ListItem>
+                    </asp:RadioButtonList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="PermissionCheck" ErrorMessage="Permission Required" Font-Size="Small" ForeColor="Red"></asp:RequiredFieldValidator>
+                    </div>
                     <div class="form-group">
                     <asp:Label ID="ErrorMassage" runat="server" Font-Size="Small" ForeColor="Red"></asp:Label>
                     </div>

@@ -57,15 +57,11 @@
                             <a runat="server" href="~/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Product <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><asp:HyperLink ID="PleHmi" runat="server" NavigateUrl="~/ProductPage/PLCANDHMI.aspx">PLC AND HMI</asp:HyperLink></li>
-                                <li class="divider"></li>
                                 <li><asp:HyperLink ID="DcDrive" runat="server" NavigateUrl="~/ProductPage/DCDrive.aspx">DC Drive</asp:HyperLink></li>
                                 <li><asp:HyperLink ID="ServoDrive" runat="server" NavigateUrl="~/ProductPage/ServoDrive.aspx">Servo Drive</asp:HyperLink></li>
                                 <li><asp:HyperLink ID="AcInverter" runat="server" NavigateUrl="~/ProductPage/ACInverter.aspx">AC Inverter</asp:HyperLink></li>
-                                <li class="divider"></li>
                                 <li><asp:HyperLink ID="AutoSensor" runat="server" NavigateUrl="~/ProductPage/AutoSensor.aspx">Auto Sensor</asp:HyperLink></li>
-                                <li class="divider"></li>
                                 <li><asp:HyperLink ID="AutoAccessories" runat="server" NavigateUrl="~/ProductPage/AutoAccessories.aspx">Auto Accessories</asp:HyperLink></li>
-                                <li class="divider"></li>
                                 <li><asp:HyperLink ID="MachanicalControl" runat="server" NavigateUrl="~/ProductPage/MachanicalControl.aspx">Machanical Control</asp:HyperLink></li>
                           </ul>
                         </li>
@@ -76,11 +72,13 @@
                         
                         <li style="margin-top: 15px;"><asp:TextBox ID="TextBox1" Height="30px" class="form-control" placeholder="Search Product " runat="server"></asp:TextBox></li>
                         <li> &nbsp; </li>
-                        <li style="margin-top: 15px;"><asp:Button ID="Button1" Height="30px" class="btn btn-success btn-sm" runat="server" Text="Search" /></li>
+                        <li style="margin-top: 15px;">
+                            <asp:ImageButton ID="ImageButtonSearch" runat="server" ImageUrl="Content/img/Search.png" Height="30px" OnClick="ImageButtonSearch_OnClick"/>
+                        </li>
                         <li></li>                          
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li style="margin-top: -7px"><asp:HyperLink ID="HyperLinkCart" ImageUrl="Content/img/Cart.png" runat="server">HyperLink</asp:HyperLink></li>
+                        <li style="margin-top: -7px"><asp:HyperLink ID="HyperLinkCart" ImageUrl="Content/img/Cart.png" runat="server" NavigateUrl="~/ProductPage/CartProduct.aspx"></asp:HyperLink></li>
                         <li class="dropdown">
                             <a runat="server" href="~/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 <asp:Label ID="LableName" runat="server" Text="Welcome"></asp:Label>
@@ -108,7 +106,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p align="center">© - Copyright &copy; <%: DateTime.Now.Year %> - All Rights Reserved By Masum</p>
+                <p class="text-center">© - Copyright &copy; <%: DateTime.Now.Year %> - All Rights Reserved By Masum</p>
             </footer>
         </div>
     </form>

@@ -8,13 +8,13 @@
             <h1>Add Product</h1>
                     <div class="form-group">
                         <asp:Label ID="LabelProName" runat="server" Text="Product Name" Font-Underline="True"></asp:Label>
-                        <asp:TextBox ID="TextProName" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TextProName" CssClass="form-control" placeholder="Product Name" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
                                                     ErrorMessage="Product Name Required" ControlToValidate="TextProName" CssClass="text-danger" Font-Size="Small"></asp:RequiredFieldValidator>
                     </div>
                     <div class="form-group">
                         <asp:Label ID="LabelProCode" runat="server" Text="Product Code" Font-Underline="True"></asp:Label>
-                        <asp:TextBox ID="TextProCode" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TextProCode" CssClass="form-control" placeholder="Product Code" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextProCode"
                                                     ErrorMessage="Product Code Required" CssClass="text-danger" Font-Size="Small"></asp:RequiredFieldValidator>
                     </div>
@@ -77,13 +77,25 @@
                     </div>
                     <div class="form-group">
                         <asp:Label ID="LabelSpecification" runat="server" Text="Details" Font-Underline="True"></asp:Label>
-                        <asp:TextBox ID="TextSpecification" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="8" Columns="65"></asp:TextBox>
+                        <asp:TextBox ID="TextSpecification" placeholder="Product Details" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="8" Columns="65"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextSpecification" ErrorMessage="Product Details is Required" CssClass="text-danger" Font-Size="Small"></asp:RequiredFieldValidator>
                     </div>
                     <div class="form-group">
                         <asp:Label ID="LabelQtt" runat="server" Text="Quantity" Font-Underline="True"></asp:Label>
-                        <asp:TextBox ID="TextProQtt" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="TextProQtt" runat="server" placeholder="Product Quantity" CssClass="form-control"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="TextProQtt" ErrorMessage="Product Quantity is Required" CssClass="text-danger" Font-Size="Small"></asp:RequiredFieldValidator>
+                    </div>
+                    <div class="form-group">
+                        <asp:Label ID="LabelPDF1" runat="server" Text="PDF 1"></asp:Label>
+                        <asp:FileUpload ID="FileUploadPDF1" runat="server" />
+                    </div>
+                     <div class="form-group">
+                        <asp:Label ID="LabelPDF2" runat="server" Text="PDF 2"></asp:Label>
+                        <asp:FileUpload ID="FileUploadPDF2" runat="server" />
+                    </div>
+                    <div class="form-group">
+                        <asp:Label ID="LabelPDF3" runat="server" Text="PDF 3"></asp:Label>
+                        <asp:FileUpload ID="FileUploadPDF3" runat="server" />
                     </div>
                     <div class="form-group">
                         <asp:Label ID="ErrorMassage" runat="server" Font-Size="Small" CssClass="text-danger"></asp:Label><br/>

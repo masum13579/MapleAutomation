@@ -72,7 +72,7 @@
                 /* size of bullet elment */
                 width: 16px;
                 height: 16px;
-                background: url('img/b05.png') no-repeat;
+                background: url('Content/img/b05.png') no-repeat;
                 overflow: hidden;
                 cursor: pointer;
             }
@@ -109,7 +109,7 @@
             width: 40px;
             height: 58px;
             cursor: pointer;
-            background: url('img/a22.png') center center no-repeat;
+            background: url('Content/img/a22.png') center center no-repeat;
             overflow: hidden;
         }
 
@@ -183,8 +183,7 @@
     <div class="container">
         <h2>Welcome to our store.</h2>
         <div class="jumbotron">
-            <p>Online shopping is the process consumers go through to purchase products or services over the Internet. You can edit this in the admin site.
-If you have questions, see the Documentation, or post in the Forums at nopCommerce.com</p>
+            <p>MAPLE AUTOMATION AND ENGINEERING LTD.<br/>Thes Site Is Under Maintainence For Security Reason, This Site Will Available In Few Days.... </p>
         </div>
     <div class="row">
         <div class="col-md-4">

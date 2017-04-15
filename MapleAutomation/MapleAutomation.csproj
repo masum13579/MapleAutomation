@@ -187,20 +187,26 @@
     <Content Include="Account\EditProfile.aspx" />
     <Content Include="Account\LogOut.aspx" />
     <Content Include="Account\Registration.aspx" />
+    <Content Include="Account\UserActivation.aspx" />
     <Content Include="Account\UserLogin.aspx" />
     <Content Include="Admin\AddAdmin.aspx" />
     <Content Include="Admin\AddProduct.aspx" />
+    <Content Include="Admin\AdminDatabase.aspx" />
     <Content Include="Admin\AdminHome.aspx" />
     <Content Include="Admin\DeleteOrder.aspx" />
     <Content Include="Admin\DeleteProduct.aspx" />
+    <Content Include="Admin\EditAdmin.aspx" />
     <Content Include="Admin\EditOrder.aspx" />
     <Content Include="Admin\EditProduct.aspx" />
+    <Content Include="Admin\Login.aspx" />
+    <Content Include="Admin\LogOut.aspx" />
     <Content Include="Admin\UserDatabase.aspx" />
     <Content Include="Admin\ViewOrder.aspx" />
     <Content Include="Admin\ViewProduct.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\etalage.css" />
     <Content Include="Content\img\a22.png" />
     <Content Include="Content\img\b05.png" />
     <Content Include="Content\img\blue.jpg" />
@@ -209,9 +215,14 @@
     <Content Include="Content\img\c-phone-horizontal.png" />
     <Content Include="Content\img\c-slide-1.jpg" />
     <Content Include="Content\img\c-slide-3.jpg" />
+    <Content Include="Content\img\calendar.png" />
     <Content Include="Content\img\loading.gif" />
+    <Content Include="Content\img\place_order.png" />
     <Content Include="Content\img\purple.jpg" />
     <Content Include="Content\img\red.jpg" />
+    <Content Include="Content\img\search.png" />
+    <Content Include="Content\magnific-popup.css" />
+    <Content Include="Content\ProductDescription.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -221,15 +232,21 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Admin\Admin.Master" />
+    <None Include="Properties\PublishProfiles\MapleAutomation.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="OurClient.aspx" />
     <Content Include="ProductPage\ACInverter.aspx" />
     <Content Include="ProductPage\AutoAccessories.aspx" />
     <Content Include="ProductPage\AutoSensor.aspx" />
+    <Content Include="ProductPage\CartProduct.aspx" />
     <Content Include="ProductPage\DCDrive.aspx" />
     <Content Include="ProductPage\MachanicalControl.aspx" />
+    <Content Include="ProductPage\OrderSummary.aspx" />
     <Content Include="ProductPage\PLCANDHMI.aspx" />
+    <Content Include="ProductPage\ProductDescription.aspx" />
+    <Content Include="ProductPage\SearchResult.aspx" />
     <Content Include="ProductPage\ServoDrive.aspx" />
+    <Content Include="ProductPage\SingleProductOrder.aspx" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -237,6 +254,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />
+    <Content Include="Scripts\jquery.etalage.min.js" />
+    <Content Include="Scripts\jquery.magnific-popup.js" />
     <Content Include="Scripts\jssor.slider-21.1.6.mini.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
@@ -307,6 +326,13 @@
     <Compile Include="Account\Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Account\UserActivation.aspx.cs">
+      <DependentUpon>UserActivation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\UserActivation.aspx.designer.cs">
+      <DependentUpon>UserActivation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Account\UserLogin.aspx.cs">
       <DependentUpon>UserLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -335,6 +361,13 @@
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AdminDatabase.aspx.cs">
+      <DependentUpon>AdminDatabase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminDatabase.aspx.designer.cs">
+      <DependentUpon>AdminDatabase.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AdminHome.aspx.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -356,6 +389,13 @@
     <Compile Include="Admin\DeleteProduct.aspx.designer.cs">
       <DependentUpon>DeleteProduct.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EditAdmin.aspx.cs">
+      <DependentUpon>EditAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditAdmin.aspx.designer.cs">
+      <DependentUpon>EditAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\EditOrder.aspx.cs">
       <DependentUpon>EditOrder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -369,6 +409,20 @@
     </Compile>
     <Compile Include="Admin\EditProduct.aspx.designer.cs">
       <DependentUpon>EditProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\LogOut.aspx.cs">
+      <DependentUpon>LogOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\LogOut.aspx.designer.cs">
+      <DependentUpon>LogOut.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UserDatabase.aspx.cs">
       <DependentUpon>UserDatabase.aspx</DependentUpon>
@@ -409,6 +463,7 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cryptography\Cryptography.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -448,6 +503,13 @@
     <Compile Include="ProductPage\AutoSensor.aspx.designer.cs">
       <DependentUpon>AutoSensor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ProductPage\CartProduct.aspx.cs">
+      <DependentUpon>CartProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductPage\CartProduct.aspx.designer.cs">
+      <DependentUpon>CartProduct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ProductPage\DCDrive.aspx.cs">
       <DependentUpon>DCDrive.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -462,6 +524,13 @@
     <Compile Include="ProductPage\MachanicalControl.aspx.designer.cs">
       <DependentUpon>MachanicalControl.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ProductPage\OrderSummary.aspx.cs">
+      <DependentUpon>OrderSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductPage\OrderSummary.aspx.designer.cs">
+      <DependentUpon>OrderSummary.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ProductPage\PLCANDHMI.aspx.cs">
       <DependentUpon>PLCANDHMI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -469,12 +538,33 @@
     <Compile Include="ProductPage\PLCANDHMI.aspx.designer.cs">
       <DependentUpon>PLCANDHMI.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ProductPage\ProductDescription.aspx.cs">
+      <DependentUpon>ProductDescription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductPage\ProductDescription.aspx.designer.cs">
+      <DependentUpon>ProductDescription.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductPage\SearchResult.aspx.cs">
+      <DependentUpon>SearchResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductPage\SearchResult.aspx.designer.cs">
+      <DependentUpon>SearchResult.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ProductPage\ServoDrive.aspx.cs">
       <DependentUpon>ServoDrive.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ProductPage\ServoDrive.aspx.designer.cs">
       <DependentUpon>ServoDrive.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductPage\SingleProductOrder.aspx.cs">
+      <DependentUpon>SingleProductOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductPage\SingleProductOrder.aspx.designer.cs">
+      <DependentUpon>SingleProductOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services.aspx.cs">
@@ -509,6 +599,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Data\" />
     <Folder Include="Content\Product\" />
     <Folder Include="Content\Product_Image\" />
   </ItemGroup>

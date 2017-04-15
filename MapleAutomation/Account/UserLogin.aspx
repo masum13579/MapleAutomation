@@ -3,6 +3,7 @@
     <div class="container">
         <div class="row"></div>
         <div class="row">
+            <asp:Panel ID="Panel1" runat="server" DefaultButton="ButtonLogin">
             <div class="col-md-4"></div>
 
             <div class="col-md-4">
@@ -27,6 +28,7 @@
             </div>
 
             <div class="col-md-4"></div>
+                </asp:Panel>
         </div>
     </div>
 </asp:Content>

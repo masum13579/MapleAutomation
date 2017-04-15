@@ -7,6 +7,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
+using System.Text;
+using System.Data;
+using System.Security.Cryptography;
 
 namespace MapleAutomation.Account
 {
@@ -15,6 +19,53 @@ namespace MapleAutomation.Account
         string cs = ConfigurationManager.ConnectionStrings["SQLCON"].ConnectionString;
         string Role { get; set; }
         string UserId { get; set; }
+
+
+        private string Decrypt(string cipherText)
+        {
+            string EncryptionKey = "MAKV2SPBNI99212";
+            byte[] cipherBytes = Convert.FromBase64String(cipherText);
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(cipherBytes, 0, cipherBytes.Length);
+                        cs.Close();
+                    }
+                    cipherText = Encoding.Unicode.GetString(ms.ToArray());
+                }
+            }
+            return cipherText;
+        }
+
+        private string Encrypt(string clearText)
+        {
+            string EncryptionKey = "MAKV2SPBNI99212";
+            byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(clearBytes, 0, clearBytes.Length);
+                        cs.Close();
+                    }
+                    clearText = Convert.ToBase64String(ms.ToArray());
+                }
+            }
+            return clearText;
+        }
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Role"] == null)
@@ -27,7 +78,7 @@ namespace MapleAutomation.Account
                 con.Open();
                 SqlCommand cmd = new SqlCommand("SELECT * FROM UserData WHERE UserID = @UserID", con);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                UserId = Request.Cookies["UserID"].Value;
+                UserId = Decrypt(Request.Cookies["UserID"].Value);
                 cmd.Parameters.AddWithValue("UserID", UserId);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -38,7 +89,7 @@ namespace MapleAutomation.Account
                         FirstName.Text = dt.Rows[0]["FirstName"].ToString();
                         LastName.Text = dt.Rows[0]["LastName"].ToString();
                         UserName.Text = dt.Rows[0]["UserName"].ToString();
-                        TextBoxPassword.Text = dt.Rows[0]["Password"].ToString();
+                        TextBoxPassword.Text = Decrypt(dt.Rows[0]["Password"].ToString());
                         Email.Text = dt.Rows[0]["Email"].ToString();
                         TextBoxPhone.Text = dt.Rows[0]["MobileNo"].ToString();
                         textArea.Text = dt.Rows[0]["Address"].ToString();
@@ -58,7 +109,7 @@ namespace MapleAutomation.Account
                     cmd.Parameters.AddWithValue("FirstName", FirstName.Text);
                     cmd.Parameters.AddWithValue("LastName", LastName.Text);
                     cmd.Parameters.AddWithValue("UserName", UserName.Text);
-                    cmd.Parameters.AddWithValue("Password", TextBoxPassword.Text);
+                    cmd.Parameters.AddWithValue("Password", Encrypt(TextBoxPassword.Text));
                     cmd.Parameters.AddWithValue("Role", Role);
                     cmd.Parameters.AddWithValue("Address", textArea.Text);
                     cmd.Parameters.AddWithValue("MobileNo", TextBoxPhone.Text);
@@ -66,7 +117,8 @@ namespace MapleAutomation.Account
                     cmd.Parameters.AddWithValue("UserID", UserId);
                     con.Open();
                     cmd.ExecuteNonQuery();
-                    Response.Redirect("~/Account/EditProfile.aspx");
+                    Massage.Text = "Account Edited Sucessfully";
+                    //Response.Redirect("~/Account/EditProfile.aspx");
                 }
             }
             else
